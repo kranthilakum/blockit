@@ -1,0 +1,81 @@
+<h2 class="text-indigo-500 flex items-center my-5">
+  <span class="bg-indigo-100 w-12 h-12 rounded-full mr-4">
+    <a
+      class="material-icons-outlined text-4xl mt-1 ml-1.5"
+      routerLink="/listings/"
+      >home</a
+    >
+  </span>
+  <span class="text-2xl font-semibold">My Listings</span>
+</h2>
+
+<div class="grid grid-cols-3 gap-2">
+  <div class="flex justify-between py-5" *ngFor="let listing of listings">
+    <div class="max-w-md md:flex">
+      <div
+        class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden cursor-pointer"
+        style="background-image: url('https://via.placeholder.com/468x60')"
+        title="{{ listing.name }}"
+        routerLink="/listings/{{ listing.id }}"
+      ></div>
+      <div
+        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+      >
+        <div class="mb-8">
+          <div
+            class="text-indigo-500 font-semibold text-xl mb-2 cursor-pointer"
+            routerLink="/listings/{{ listing.id }}"
+          >
+            {{ listing.name }}
+          </div>
+          <div class="flex space-x-2">
+            <button
+              class="text-sm bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer"
+              routerLink="/edit-listing/{{ listing.id }}"
+            >
+              Edit
+            </button>
+            <button
+              class="text-sm bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer"
+              (click)="deleteListing(listing.id)"
+            >
+              Delete
+            </button>
+          </div>
+          <p class="text-gray-700 text-base">
+            {{ listing.description }}
+          </p>
+          <div>{{ listing.price }}</div>
+        </div>
+        <div class="flex items-center">
+          <!-- <img
+        class="w-10 h-10 rounded-full mr-4"
+        src="/img/jonathan.jpg"
+        alt="Avatar of trader"
+      /> -->
+          <div class="text-sm">
+            <ul class="text-gray-600 leading-none">
+              <li
+                class="inline-block bg-indigo-100 rounded-full px-3 py-1 text-sm font-semibold text-indigo-600 mr-2 mb-2"
+                *ngFor="let category of listing?.categories"
+              >
+                #{{ category }}
+              </li>
+            </ul>
+            <p class="text-gray-900 leading-none">
+              <span>Contact: </span>
+              <span
+                class="font-bold cursor-pointer text-indigo-500"
+                routerLink="/contact/{{ listing.id }}"
+                >{{ listing.trader?.name }}</span
+              >
+            </p>
+            <p class="text-gray-600">
+              Last updated on {{ listing.lastUpdated }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

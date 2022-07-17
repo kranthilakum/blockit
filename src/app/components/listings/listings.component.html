@@ -1,0 +1,57 @@
+<h2 class="font-semibold text-2xl text-indigo-500 my-5">Ready for Purchase</h2>
+<div class="grid grid-cols-3 gap-3">
+  <div class="flex justify-between" *ngFor="let listing of listings">
+    <div class="max-w-md md:flex">
+      <div
+        class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden cursor-pointer"
+        style="background-image: url('https://via.placeholder.com/468x60')"
+        title="{{ listing.name }}"
+        routerLink="/listings/{{ listing.id }}"
+      ></div>
+      <div
+        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal"
+      >
+        <div class="mb-8">
+          <div
+            class="text-indigo-500 font-semibold text-xl mb-2 cursor-pointer"
+            routerLink="/listings/{{ listing.id }}"
+          >
+            {{ listing.name }}
+          </div>
+          <p class="text-gray-700 text-base">
+            {{ listing.description }}
+          </p>
+          <div class="font-bold">{{ listing.price }}</div>
+        </div>
+        <div class="flex items-center">
+          <!-- <img
+        class="w-10 h-10 rounded-full mr-4"
+        src="/img/jonathan.jpg"
+        alt="Avatar of trader"
+      /> -->
+          <div class="text-sm">
+            <ul class="text-gray-600 leading-none">
+              <li
+                class="inline-block bg-indigo-100 rounded-full px-3 py-1 text-sm font-semibold text-indigo-600 mr-2 mb-2"
+                *ngFor="let category of listing?.categories"
+              >
+                #{{ category }}
+              </li>
+            </ul>
+            <p class="text-gray-900 leading-none">
+              <span>Contact: </span>
+              <span
+                class="font-bold cursor-pointer text-indigo-500"
+                routerLink="/contact/{{ listing.id }}"
+                >{{ listing.trader?.name }}</span
+              >
+            </p>
+            <p class="text-gray-600">
+              Last updated on {{ listing.lastUpdated }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

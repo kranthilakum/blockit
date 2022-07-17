@@ -1,0 +1,40 @@
+<h2 class="text-indigo-500 flex items-center my-5">
+  <span class="bg-indigo-100 w-12 h-12 rounded-full mr-4">
+    <a
+      class="material-icons-outlined text-4xl mt-1 ml-1.5"
+      routerLink="/listings/"
+      >home</a
+    >
+  </span>
+  <span class="text-2xl text-indigo-500 font-semibold mr-4">
+    <a routerLink="/my-listings/">My Listings</a>
+  </span>
+  <span class="text-2xl font-semibold">{{ listing?.name }}</span>
+</h2>
+
+<div class="max-w-sm rounded overflow-hidden shadow-lg">
+  <img
+    class="w-full"
+    src="https://via.placeholder.com/468x360"
+    alt="{{ listing?.name }}"
+  />
+  <div class="px-6 py-4">
+    <div class="font-semibold text-indigo-500 text-xl mb-2">
+      {{ listing?.name }}
+    </div>
+    <p class="text-gray-700 text-base">
+      {{ listing?.description }}
+    </p>
+  </div>
+  <div class="px-6 pt-4 pb-2 text-sm">
+    <ul class="text-gray-600 leading-none">
+      <li
+        class="inline-block bg-indigo-100 rounded-full px-3 py-1 text-sm font-semibold text-indigo-600 mr-2 mb-2"
+        *ngFor="let category of listing?.categories"
+      >
+        #{{ category }}
+      </li>
+    </ul>
+    <p class="text-gray-600">Last updated on {{ listing?.lastUpdated }}</p>
+  </div>
+</div>
