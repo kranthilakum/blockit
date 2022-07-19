@@ -9,7 +9,7 @@ import { Listing } from '../types';
   providedIn: 'root',
 })
 export class DataService {
-  constructor() {}
+  constructor() { }
 
   getListings(): Observable<Listing[]> {
     return of(fakeList);
@@ -41,6 +41,14 @@ export class DataService {
         return of(null);
       })
     );
+  }
+
+  updateListing(listing: Listing): Observable<Listing> {
+    return of(listing);
+  }
+
+  createListing(listing: Listing): Observable<Listing> {
+    return of(listing);
   }
 
   throwError(error: any) {

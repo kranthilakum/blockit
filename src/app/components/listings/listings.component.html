@@ -4,7 +4,7 @@
     <div class="max-w-md md:flex">
       <div
         class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden cursor-pointer"
-        style="background-image: url('https://via.placeholder.com/468x60')"
+        style="background-image: url('{{ listing.imageUrl }}')"
         title="{{ listing.name }}"
         routerLink="/listings/{{ listing.id }}"
       ></div>

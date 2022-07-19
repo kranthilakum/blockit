@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { uuid } from 'uuidv4';
+import { nanoid } from 'nanoid'
 import { Listing } from 'src/app/types';
 
 @Component({
@@ -11,7 +11,7 @@ import { Listing } from 'src/app/types';
 export class CreateOrEditListingComponent implements OnInit {
   @Input() listing: Listing | undefined;
   @Input() submitButton: string = '';
-  @Output() submitListing: EventEmitter<Listing> = new EventEmitter<Listing>();
+  @Output() onListingSubmit: EventEmitter<Listing> = new EventEmitter<Listing>();
   createOrEditListingForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
     price: new FormControl('', [Validators.required]),
@@ -25,16 +25,30 @@ export class CreateOrEditListingComponent implements OnInit {
   });
   constructor() { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if (this.listing) {
+      this.createOrEditListingForm.patchValue({
+        name: this.listing.name,
+        price: this.listing.price,
+        description: this.listing.description,
+        street: this.listing.location?.address?.street,
+        city: this.listing.location?.address?.city,
+        state: this.listing.location?.address?.state,
+        country: this.listing.location?.address?.country,
+        zip: this.listing.location?.address?.zip,
+        publishNow: this.listing.isPosted,
+      });
+    }
+  }
 
   onSubmit(): void {
-    this.submitListing.emit({
-      id: uuid(),
+    this.onListingSubmit.emit({
+      id: nanoid(),
       name: this.createOrEditListingForm.value.name!,
       price: this.createOrEditListingForm.value.price!,
       description: this.createOrEditListingForm.value.description!,
       location: {
-        id: uuid(),
+        id: nanoid(),
         address: {
           street: this.createOrEditListingForm?.value?.street!,
           city: this.createOrEditListingForm.value.city!,

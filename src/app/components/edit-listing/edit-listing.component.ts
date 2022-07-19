@@ -13,7 +13,7 @@ export class EditListingComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private dataService: DataService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     const urlParamId = this.activatedRoute.snapshot.paramMap.get('id') || '0';
@@ -23,5 +23,11 @@ export class EditListingComponent implements OnInit {
         this.listing = listing!;
         console.log(this.listing);
       });
+  }
+
+  onListingSubmit(listing: Listing): void {
+    this.dataService.updateListing(listing).subscribe(() => {
+      console.log('Listing updated');
+    });
   }
 }

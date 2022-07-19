@@ -8,4 +8,7 @@
   </span>
   <span class="text-2xl font-semibold">Add Listing</span>
 </h2>
-<app-create-or-edit-listing submitButton="Submit"></app-create-or-edit-listing>
+<app-create-or-edit-listing
+  [submitButton]="'Submit'"
+  (onListingSubmit)="onListingSubmit($event)"
+></app-create-or-edit-listing>

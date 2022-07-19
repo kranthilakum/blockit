@@ -10,5 +10,6 @@
 </h2>
 <app-create-or-edit-listing
   [listing]="listing"
-  submitButton="Save"
+  [submitButton]="'Save'"
+  (onListingSubmit)="onListingSubmit($event)"
 ></app-create-or-edit-listing>

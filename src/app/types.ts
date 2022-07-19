@@ -3,6 +3,7 @@ export interface Listing {
   name: string;
   description?: string;
   price: string;
+  imageUrl?: string,
   categories?: string[];
   lastUpdated?: string;
   user?: user;

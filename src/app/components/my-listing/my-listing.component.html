@@ -8,7 +8,7 @@
   </span>
   <span class="text-2xl font-semibold">My Listings</span>
   <span class="text-2xl font-semibold"
-    ><a routerLink="/create-listing/">Add Listing</a></span
+    ><a routerLink="/new-listing/">Add Listing</a></span
   >
 </h2>
 
@@ -17,7 +17,7 @@
     <div class="max-w-md md:flex">
       <div
         class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden cursor-pointer"
-        style="background-image: url('https://via.placeholder.com/468x60')"
+        style="background-image: url({{ listing.imageUrl }})"
         title="{{ listing.name }}"
         routerLink="/listings/{{ listing.id }}"
       ></div>
@@ -39,7 +39,7 @@
               Edit
             </button>
             <button
-              class="text-sm bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded cursor-pointer"
+              class="text-sm bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded cursor-pointer"
               (click)="deleteListing(listing.id)"
             >
               Delete
