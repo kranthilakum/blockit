@@ -12,6 +12,7 @@ import { Listing } from '../../types';
 export class ListingDetailsComponent implements OnInit {
   url: string = '';
   listing: Listing | undefined;
+  urlSubscription: Subscription = new Subscription();
   constructor(
     private activatedRoute: ActivatedRoute,
     private dataService: DataService
@@ -19,11 +20,27 @@ export class ListingDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const urlParamId = this.activatedRoute.snapshot.paramMap.get('id') || '0';
-    this.dataService
-      .getMyListing(urlParamId)
-      .subscribe((listing: Listing | null | undefined) => {
-        this.listing = listing!;
-        console.log(this.listing);
-      });
+    this.urlSubscription = this.activatedRoute.url.subscribe((url) => {
+      this.url = url[0].path;
+      if (this.url.includes('listings')) {
+        this.dataService
+          .getListing(urlParamId)
+          .subscribe((listing: Listing | null | undefined) => {
+            this.listing = listing!;
+            console.log(this.listing);
+          });
+      } else if (this.url.includes('my-listings')) {
+        this.dataService
+          .getMyListing(urlParamId)
+          .subscribe((listing: Listing | null | undefined) => {
+            this.listing = listing!;
+            console.log(this.listing);
+          });
+      }
+    });
+  }
+
+  ngdOnDestroy(): void {
+    this.urlSubscription.unsubscribe();
   }
 }

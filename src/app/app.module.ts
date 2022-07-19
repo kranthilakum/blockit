@@ -9,8 +9,9 @@ import { ListingDetailsComponent } from './components/listing-details/listing-de
 import { ContactComponent } from './components/contact/contact.component';
 import { NewListingComponent } from './components/new-listing/new-listing.component';
 import { MyListingComponent } from './components/my-listing/my-listing.component';
-import { EditListingComponent } from './components/edit-listing/edit-listing.component';
+import { CreateOrEditListingComponent } from './components/create-or-edit-listing/create-or-edit-listing.component';
 import { HeaderComponent } from './components/header/header.component';
+import { EditListingComponent } from './components/edit-listing/edit-listing.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +21,9 @@ import { HeaderComponent } from './components/header/header.component';
     ContactComponent,
     NewListingComponent,
     MyListingComponent,
-    EditListingComponent,
+    CreateOrEditListingComponent,
     HeaderComponent,
+    EditListingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

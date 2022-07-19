@@ -31,6 +31,18 @@ export class DataService {
     );
   }
 
+  getListing(id: string): Observable<Listing | null | undefined> {
+    return this.getListings().pipe(
+      map((listings: Listing[]) =>
+        listings.find((listing) => listing.id === id)
+      ),
+      catchError((err) => {
+        console.error(err);
+        return of(null);
+      })
+    );
+  }
+
   throwError(error: any) {
     console.log(error);
     throw new Error('This is an error');

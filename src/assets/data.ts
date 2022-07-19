@@ -9,7 +9,7 @@ export const fakeList: Listing[] = [
     categories: ['boats', 'used'],
     isPosted: true,
     lastUpdated: '2022-02-12',
-    trader: {
+    user: {
       id: '1',
       name: 'John Doe',
       email: 'john.doe@mail.com',
@@ -37,7 +37,7 @@ export const fakeList: Listing[] = [
     categories: ['boats', 'new'],
     isPosted: true,
     lastUpdated: '2021-12-27',
-    trader: {
+    user: {
       id: '2',
       name: 'Jane Doe',
       email: 'jane.doe@mail.com',
@@ -65,7 +65,7 @@ export const fakeList: Listing[] = [
     categories: ['computers', 'used'],
     isPosted: true,
     lastUpdated: '2022-03-14',
-    trader: {
+    user: {
       id: '3',
       name: 'John Smith',
       email: 'john.smith@mail.com',
@@ -93,7 +93,7 @@ export const fakeList: Listing[] = [
     categories: ['computers', 'new'],
     isPosted: true,
     lastUpdated: '2021-06-23',
-    trader: {
+    user: {
       id: '4',
       name: 'Jane Smith',
       email: 'jane.smith@mail.com',
@@ -107,7 +107,7 @@ export const fakeList: Listing[] = [
     categories: ['sports', 'baseball'],
     isPosted: true,
     lastUpdated: '2020-08-12',
-    trader: {
+    user: {
       id: '5',
       name: 'George Doe',
       email: 'george.doe@mail.com',
@@ -135,7 +135,7 @@ export const fakeList: Listing[] = [
     categories: ['sports', 'basketball'],
     isPosted: true,
     lastUpdated: '2022-07-11',
-    trader: {
+    user: {
       id: '6',
       name: 'Paul Doe',
       email: 'paul.doe@mail.com',
@@ -166,7 +166,7 @@ export const fakeMyList: Listing[] = [
     categories: ['computers', 'used'],
     isPosted: false,
     lastUpdated: '2022-02-12',
-    trader: {
+    user: {
       id: '1',
       name: 'John Doe',
       email: '',
@@ -194,7 +194,7 @@ export const fakeMyList: Listing[] = [
     categories: ['phones', 'used'],
     isPosted: false,
     lastUpdated: '2022-06-22',
-    trader: {
+    user: {
       id: '1',
       name: 'John Doe',
       email: '',

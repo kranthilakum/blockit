@@ -5,12 +5,12 @@ export interface Listing {
   price: string;
   categories?: string[];
   lastUpdated?: string;
-  trader?: Trader;
+  user?: user;
   location?: Location;
   isPosted?: boolean;
 }
 
-export interface Trader {
+export interface user {
   id: string;
   name: string;
   email: string;
